@@ -80,7 +80,7 @@ const ImageUploadModal = (props) => {
         const imageDataResult = await saveImageResponse.json();
 
         if (imageDataResult.success) {
-          console.log("saved successfully", imageDataResult);
+          console.log("saved successfully");
         }
       } else {
         console.error("Image upload failed:", result);

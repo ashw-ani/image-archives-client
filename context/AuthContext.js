@@ -6,6 +6,7 @@ export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [selectedFolder, setSelectedFolder] = useState(null);
+  const [showSearchResult, setShowSearchResult] = useState(false);
 
   const apiRoute = process.env.NEXT_PUBLIC_CHAT_APP_BACKEND;
 
@@ -43,6 +44,8 @@ export const AuthProvider = ({ children }) => {
         setUserData,
         selectedFolder,
         setSelectedFolder,
+        showSearchResult,
+        setShowSearchResult,
       }}
     >
       {children}

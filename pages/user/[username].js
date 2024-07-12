@@ -19,6 +19,7 @@ const UserDash = (props) => {
     isLoggedIn,
     setIsLoggedIn,
     userData,
+    showSearchResult,
     setUserData,
     selectedFolder,
     setSelectedFolder,
@@ -121,47 +122,49 @@ const UserDash = (props) => {
   return (
     <div className="w-screen h-screen pt-20 no-scrollbar overflow-auto flex flex-col">
       {userData && <DashboardIntro userData={userData} />}
-      <div className="bg-white  flex flex-row flex-wrap gap-2 p-5 ">
-        {selectedFolder && (
-          <div
-            className="flex flex-col h-7 w-7 p-1 cursor-pointer "
-            onClick={() => {
-              setSelectedFolder(lastFolder);
-              setFetchedImages([]);
-            }}
-          >
-            <FaAngleDoubleLeft className="text-lg " />
-          </div>
-        )}
-        {selectedFolder && <UploadImage />}
-        {fetchedFolders.map((folder) => (
-          <div
-            key={folder._id}
-            className="flex flex-col h-20 w-20 justify-between items-center p-1 cursor-pointer "
-            onClick={() => {
-              setLastFolder(selectedFolder);
-              setSelectedFolder(folder._id);
-            }}
-          >
-            <GoFileDirectoryFill className="text-5xl" />
-            <div className="max-w-full h-6 pl-1 flex flex-row justify-items-center overflow-clip">
-              {folder.name}
+      {!showSearchResult && (
+        <div className="bg-white  flex flex-row flex-wrap gap-2 p-5 ">
+          {selectedFolder && (
+            <div
+              className="flex flex-col h-7 w-7 p-1 cursor-pointer "
+              onClick={() => {
+                setSelectedFolder(lastFolder);
+                setFetchedImages([]);
+              }}
+            >
+              <FaAngleDoubleLeft className="text-lg " />
             </div>
-          </div>
-        ))}
-        {fetchedImages.map((image) => (
-          <div
-            onClick={() => window.open(image.url, "_blank")}
-            key={image._id}
-            className="flex flex-col h-16 w-16 justify-between items-center p-1 cursor-pointer "
-          >
-            <img src={image.url} alt="image" />
-            <div className="max-w-full h-6 pl-1 flex flex-row justify-items-center overflow-clip">
-              {image.name}
+          )}
+          {selectedFolder && <UploadImage />}
+          {fetchedFolders.map((folder) => (
+            <div
+              key={folder._id}
+              className="flex flex-col h-20 w-20 justify-between items-center p-1 cursor-pointer "
+              onClick={() => {
+                setLastFolder(selectedFolder);
+                setSelectedFolder(folder._id);
+              }}
+            >
+              <GoFileDirectoryFill className="text-5xl" />
+              <div className="max-w-full h-6 pl-1 flex flex-row justify-items-center overflow-clip">
+                {folder.name}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+          {fetchedImages.map((image) => (
+            <div
+              onClick={() => window.open(image.url, "_blank")}
+              key={image._id}
+              className="flex flex-col h-16 w-16 justify-between items-center p-1 cursor-pointer "
+            >
+              <img src={image.url} alt="image" />
+              <div className="max-w-full h-6 pl-1 flex flex-row justify-items-center overflow-clip">
+                {image.name}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
