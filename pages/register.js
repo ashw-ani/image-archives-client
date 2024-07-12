@@ -2,7 +2,7 @@ import { useState } from "react";
 import LoadingScreen from "@/components/LoadingScreen";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
-import authContext from "@/context/authContext";
+import authContext from "@/context/AuthContext";
 import { useContext } from "react";
 
 const Register = (props) => {

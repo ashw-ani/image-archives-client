@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useRouter } from "next/router";
-import authContext from "@/context/authContext";
+import authContext from "@/context/AuthContext";
 import { useEffect } from "react";
 
 const Login = (props) => {

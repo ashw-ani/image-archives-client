@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import authContext from "@/context/authContext";
+import authContext from "@/context/AuthContext";
 
 import { useContext } from "react";
 

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import authContext from "@/context/authContext";
+import authContext from "@/context/AuthContext";
 import ImageUploadModal from "./ImageUploadModal";
 
 const UploadImage = (props) => {

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
-import AuthContext from "@/context/authContext";
+import AuthContext from "@/context/AuthContext";
 import DashboardIntro from "@/components/Dashboardintro";
 import { GoFileDirectoryFill } from "react-icons/go";
 import { FaAngleDoubleLeft } from "react-icons/fa";
